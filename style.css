@@ -1,0 +1,279 @@
+h1 {
+  color: black;
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  font-stretch: ultra-expanded;
+}
+
+/* link color swag */
+a:link { color: black;  }
+a:visited { color: black; }
+a:hover { color: darkblue; }
+a:active { color: black; }
+
+/*nav bar things*/
+nav {
+  display: flex;
+  flex: auto 1 1;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+nav a {
+  font-size: clamp(1.25rem, 2.5vw, 3rem);
+  padding: 0.5%;
+  background-color: antiquewhite;
+  border: 0.20rem solid;
+  border-radius: 0.5rem;
+  box-shadow: -0.2vw -0.2rem black, -0.4vw -0.4rem lightblue;
+  transition: 
+    transform 1s ease-in-out,
+    color 1s ease-in-out,
+    box-shadow 1s ease-in-out;
+  text-decoration: none;
+  padding-bottom: 0;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  box-shadow: -0.2vw -0.2rem darkblue, -0.6vw -0.6rem 0.1rem antiquewhite;
+}
+
+p {
+  color: black;
+}
+
+body {
+  font-family: 'Geist Pixel', sans-serif;
+  font-size: 17px;
+  background-color: antiquewhite;
+}
+
+#content {
+  display: grid;
+  max-width: 100%;
+  width: 100vw;
+  grid-gap: 10px;
+  margin: 0 auto;
+  background-color: lightblue;
+  grid-template:
+    "header header header"
+    "asideLeft main asideRight"
+    "footer footer footer"
+    auto / 220px auto 220px;
+}
+
+header { 
+  grid-area: header; 
+  text-align: center;
+  justify-content: center;
+  margin-bottom: -10px;
+}
+aside:hover {
+  transform: scale(1.01);
+}
+.aside--left {
+  grid-area: asideLeft;
+  background-color: #fffffd;
+  border: 3px dotted black;
+  border-radius: 1%;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+.aside--right {
+  grid-area: asideRight;
+  background-color: #fffffd;
+  border: 3px dotted black;
+  border-radius: 1%;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+main { 
+  grid-area: main; 
+  background-color: #fffffd;
+  border: 3px dotted black;
+  border-radius: 2%;
+  padding: 1rem;
+  margin: 0.25rem;
+  min-height: 40rem;
+}
+
+.blog-posts {
+  max-height: 40rem;
+  overflow-y: auto;
+}
+
+footer { 
+  grid-area: footer; 
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* link slide up effect */
+.link--slide-up-replace {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 1.2em;
+  text-decoration: none;
+  color: #111;
+}
+.link-text-top,
+.link-text-bottom {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.link-text-bottom { color: black; }
+.link--slide-up-replace:hover .link-text-top,
+.link--slide-up-replace:hover .link-text-bottom {
+  transform: translateY(-90%);
+}
+
+/*songs page css*/
+li:nth-child(even) {
+  background-color: #fafafa; /* Replace with your preferred color */
+}
+
+.release-details summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.release-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.release-details summary::after {
+  content: " +";
+}
+
+.release-details[open] summary::after {
+  content: " −";
+}
+
+.release-details[open] summary {
+  font-weight: bold;
+}
+
+.release-box {
+  display: flex;
+  gap: 0.1rem;
+  padding: 3rem 0.25rem;
+  border: 2px dotted black;
+  text-align: left;
+}
+
+.release-box img {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.release-links a {
+  margin-top: auto;
+  margin-right: .75rem;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.dropcontent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  transition: max-height 0.5s ease-out;
+}
+
+.marquee {
+  height: 25px;
+  width: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 5s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #fafafa;
+  text-align: left;
+  padding: 0.1rem;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+@media (min-width: 801px) {
+  #content.live-page {
+    grid-template-columns: 30rem auto 5rem;
+  }
+}
+
+@media (min-width: 801px) {
+  #content.songs-page {
+    grid-template-columns: auto 80% auto;
+  }
+}
+
+@media (max-width: 800px) {
+  #content {
+    grid-template:
+      "header"
+      "asideLeft"
+      "main"
+      "asideRight"
+      "footer"
+      / auto;
+  }
+  #content:has(.blog-posts) {
+      grid-template:
+      "header"
+      "asideLeft"
+      "main"
+      "asideRight"
+      "footer"
+      / auto;
+  }
+}
